@@ -58,6 +58,8 @@ const Demo = () => {
                 <div className='flex flex-col'>
                     <label className='text-xl mt-5'>Enter a URL </label>
                     <input className='rounded mt-12 my-8 mx-8 shadow-md bg-transparent' value={article.url} onChange={(e)=>setArticle({...article,url:e.target.value})} type='url' required style={{"width":"90%"}}  />
+                    <h3>Note : A url with insufficient text content cannot be summarized.</h3>
+
                 <button className='text-transparent mb-10 text-xl font-semibold mt-10 bg-clip-text  ring-slate-500 ring-1 bg-gradient-to-br from-pink-600 to-blue-500' type='submit' style={{"width":"60%","marginLeft":"20%"}}>Summarize</button>
                 </div>
             </form>
@@ -82,13 +84,13 @@ const Demo = () => {
         <div>
             {isFetching?(
                 <div style={{"marginTop":"10%"}}>
-                    <h1 className='text-blue-400 text-xl'>Reading between the lines ;)</h1>
+                    <h1 className='text-blue-400 text-xl'>Reading between the lines : {')'}</h1>
                     <br />
                     <BeatLoader color="#529ce2"/>
                 </div>
                 
             ):error?(
-                <p style={{"marginTop":"10%"}}>Something went wrong...Please try again later.</p>
+                <p className='text-red-500' style={{"marginTop":"10%"}}>Something went wrong...Please try another url or try again later.</p>
             ):(article.summary&&(
                 <div className='shadow-2xl' style={{"width":"91%","marginLeft":"5%"}}>
                     <div className='mt-20'>
