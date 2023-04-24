@@ -48,6 +48,10 @@ const Demo = () => {
         }
     }
 
+    const clearhistory = () => {
+        setAllArticles([]);
+    }
+
 
   return (
     <div id='#summary' className='text-center w-full h-full' style={{"marginTop":"10%","height":"auto"}}>
@@ -67,14 +71,19 @@ const Demo = () => {
 
 
         <div className='shadow-2xl rounded-3xl' style={{"width":"45%","marginLeft":"1%"}}>
-            <h2 className='text-xl my-5' style={{"marginRight":"5%"}}>History</h2>
+            <div className='flex text-center justify-center'>
+            <h2 className='text-xl my-5' style={{"position":"absolute"}}>History</h2>
+            <button className='ring-1 text-sm ring-black' onClick={clearhistory} style={{"marginLeft":"90%","marginTop":"2%"}}> Clear </button>
+            </div>
+            <div className='my-10' style={{"marginLeft":"2%"}}>
                     {allArticles.map((item,index)=>(
-                        <div className='my-1 text-blue-400 overflow-hidden h-10 text-left' key={`link-${index}`} onClick={()=>setArticle(item)} style={{"marginLeft":"2%"}}>
-                            <div className='my-3'>
+                        <div className='text-blue-400 overflow-hidden h-10 text-left' key={`link-${index}`} onClick={()=>setArticle(item)}>
+                            <div className=''>
                             {item.url}
                             </div>
                         </div>
                     ))}
+            </div>
         </div>
 
 
