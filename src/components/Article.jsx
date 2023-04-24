@@ -77,7 +77,7 @@ const Demo = () => {
             </div>
             <div className='my-10' style={{"marginLeft":"2%"}}>
                     {allArticles.map((item,index)=>(
-                        <div className='text-blue-400 overflow-hidden overflow-y-hidden h-10 text-left' key={`link-${index}`} onClick={()=>setArticle(item)}>
+                        <div className='text-blue-400 overflow-hidden overflow-y-hidden h-6 text-left' key={`link-${index}`} onClick={()=>setArticle(item)}>
                             <div className='overflow-hidden overflow-y-hidden'>
                             {item.url}
                             </div>
